@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "FileTransfer.Server";
+
+package uploader;
+
+// The greeting service definition.
+service Uploader {
+  // Sends a greeting
+  rpc UploadFile (stream UploaderRequest) returns (UploaderReply);
+}
+
+// The request message containing the user's name.
+message UploaderRequest {
+  string path = 1;
+  bytes data = 2;
+}
+
+// The response message containing the greetings.
+message UploaderReply {
+  string message = 1;
+  bool isSuccess = 2;
+  string ex = 3;
+}
